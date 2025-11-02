@@ -1,0 +1,125 @@
+@font-face {
+    font-family: "KGMissKindergarten";
+    src: url("../fonts/KGMissKindergarten.ttf") format("truetype");
+}
+
+body {
+  overflow-y: scroll;
+  font-family: KGMissKindergarten, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.navBar {
+  list-style-type: none;
+  overflow: hidden;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  height: fit-content;
+  position: fixed;
+  z-index: 1000;
+
+  background-color: aquamarine;
+}
+
+.navBar li {
+  float: left;
+}
+
+.navBar li a {
+  display: block;
+  color: #fff;
+  border-right: 1px solid #fff;
+
+  text-align: center;
+  justify-content: center;
+  font-family: KGMissKindergarten, sans-serif;
+  font-size: 22px;
+  padding: 20px;
+  text-decoration: none;
+}
+
+.navBar li a:hover {
+  background-color: aqua;
+}
+
+.header {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 10px;
+  text-align: center;
+  background-color: #333;
+}
+
+h1 {
+  font-size: 72px;
+  color: #fff;
+}
+
+
+h4 {
+  font-size: 32px;
+  color: #fff;
+}
+
+p {
+  font-size: 22px;
+  color: aqua;
+}
+
+.grid {
+  margin: 2%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(15%, 1fr));
+  grid-auto-flow: row;
+  gap: 20px;
+}
+
+.hover-container {
+  box-sizing: border-box;
+  position: relative;
+  height: 35vh;
+  width: 15vw;
+
+  background-color: #333;
+  border: 4px solid #000;
+
+  cursor: pointer;
+}
+
+.book-thumbnail {
+  position: absolute;
+  box-sizing: border-box;
+
+  height: 100%;
+  width: 100%;
+
+  visibility: visible;
+  opacity: 1;
+  transition: visibility 0.2s, opacity 0.2s;
+}
+
+.hover-container:hover .book-thumbnail {
+  opacity: 0.3;
+}
+
+.hidden-content {
+  position: absolute;
+  padding: 20px;
+
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0.2s, opacity 0.2s;
+        }
+
+iframe {
+  border: none;
+  width: 100%;
+  height: 150px;
+}
+
+.hover-container:hover .hidden-content {
+  visibility: visible;
+  opacity: 1;
+}
