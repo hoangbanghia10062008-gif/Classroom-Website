@@ -1,0 +1,89 @@
+@font-face {
+	font-family: "KGMissKindergarten";
+	src: url("fonts/KGMissKindergarten.ttf") format("truetype");
+}
+
+body {
+	overflow-y: scroll;
+	font-family: KGMissKindergarten, sans-serif;
+	margin: 0;
+	padding: 0;
+}
+
+.navBar {
+	list-style-type: none;
+	overflow: hidden;
+	padding: 0;
+	margin: 0;
+	width: 100%;
+	height: fit-content;
+	position: fixed;
+	z-index: 1000;
+
+	border-bottom: 2px solid #bbb;
+	background-image: linear-gradient(to bottom, #5FE0FF, #0cdf9d);
+}
+
+.navBar li {
+	float: left;
+}
+
+.navBar li a {
+	display: block;
+	position: relative;
+	color: #fff;
+	border-right: 2px solid #bbb;
+
+	text-align: center;
+	justify-content: center;
+	font-family: KGMissKindergarten, sans-serif;
+	font-size: 22px;
+	padding: 20px;
+	text-decoration: none;
+}
+
+.navBar li a::before { /*pseudo-element for hover effect*/
+	content: "";
+	height: 100%;
+	width: 100%;
+	position: absolute;
+	inset: 0;
+	background-image: linear-gradient(to bottom, #ff7e5f, #feb47b);
+	opacity: 0;
+	max-height: 0;
+	transition: all 0.3s ease;
+	z-index: -1;
+}
+
+.navBar li a:hover::before { /*show hover effect*/
+	opacity: 1;
+	max-height: 100%;
+}
+
+.navBar li a:hover { /*change text color on hover*/
+	color: #000;
+}
+
+.header {
+	box-sizing: border-box;
+	width: 100%;
+	padding: 10px;
+	text-align: center;
+	background-color: #333;
+}
+
+h1 {
+	font-size: 72px;
+	color: #000;
+}
+
+
+h4 {
+	font-size: 32px;
+	color: #000;
+}
+
+p {
+	font-size: 22px;
+	color: aqua;
+}
