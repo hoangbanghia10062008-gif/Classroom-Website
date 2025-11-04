@@ -1,0 +1,84 @@
+.grid {
+	margin: 2%;
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+	grid-auto-flow: row;
+	gap: 50px;
+	justify-content: center;
+	max-width: 1200px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.grid li {
+	display: flex;
+}
+
+.grid li a {
+	width: 100%;
+	height: 100%;
+	padding: 20px;
+	font-size: 30px;
+
+	text-decoration: none;
+	list-style-type: none;
+	overflow: hidden;
+	color: black;
+	background-color: aquamarine;
+	border: 2px solid black;
+	border-radius: 10px;
+}
+
+.grid li a:hover {
+	background-color: #0cdf9d;
+	color: white;
+}
+
+#home::after {
+	content: "\1F3E0";
+	color: black;
+	float: right;
+	font-size: 40px;
+}
+
+#music::after {
+	content: "\1F3B8\1F3B6";
+	color: black;
+	float: right;
+	font-size: 40px;
+}
+
+#read::after {
+	content: "\1F4D6";
+	color: black;
+	float: right;
+	font-size: 40px;
+}
+
+#phonics::after {
+	content: "\0041\0042\0043";
+	color: black;
+	float: right;
+	font-size: 40px;
+}
+
+#math::after {
+	content: "\1F4CA";
+	color: black;
+	float: right;
+	font-size: 40px;
+}
+
+#news::after {
+	content: "\1F4F0";
+	color: black;
+	float: right;
+	font-size: 40px;
+}
+
+#art::after {
+	content: "\1F3A8\1F58C";
+	color: black;
+	float: right;
+	font-size: 40px;
+}
