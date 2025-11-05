@@ -144,7 +144,7 @@ function createBook(book) {
 
     const content = `
         <div class="hover-container">
-            <img src="/read/book-thumbnails/${book.thumbnail}" alt="Book Thumbnail" class="book-thumbnail">
+            <img src="book-thumbnails/${book.thumbnail}" alt="Book Thumbnail" class="book-thumbnail">
             <div class="hidden-content">
                 <iframe src="${book.URL}" title="YouTube video player"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
