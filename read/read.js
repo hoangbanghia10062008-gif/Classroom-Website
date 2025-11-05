@@ -141,7 +141,7 @@ const bookData = [ // Array to hold book data
 function createBook(book) {
     const content = `
         <div class="hover-container">
-            <img src="../read/book-thumbnails/${book.thumbnail}" 
+            <img src="/Classroom-Website/read/book-thumbnails/${book.thumbnail}" 
                  alt="Book Thumbnail" 
                  class="book-thumbnail"
                  loading="lazy">
