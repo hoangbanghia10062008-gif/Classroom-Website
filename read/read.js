@@ -136,38 +136,35 @@ const bookData = [ // Array to hold book data
 let grid = null;
 
 function createBook(book) {
-    // ensure we have a container to insert into
-    if (!grid) {
-        grid = document.querySelector('.grid');
-        if (!grid) return; // nothing to insert into
-    }
-
     const content = `
         <div class="hover-container">
-            <img src="book-thumbnails/${book.thumbnail}" alt="Book Thumbnail" class="book-thumbnail">
+            <img src="../read/book-thumbnails/${book.thumbnail}" 
+                 alt="Book Thumbnail" 
+                 class="book-thumbnail"
+                 loading="lazy"
+                 width="200"
+                 height="300">
             <div class="hidden-content">
-                <iframe src="${book.URL}" title="YouTube video player"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                <iframe src="${book.URL}" 
+                        title="YouTube video player"
+                        loading="lazy"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerpolicy="strict-origin-when-cross-origin" 
+                        allowfullscreen></iframe>
                 <p>${book.summary}</p>
             </div>
         </div>
     `;
-    grid.insertAdjacentHTML('beforeend', content);
+    return content;
 }
 
 function loadBooks() {
-    // try to get the grid (if this function is called before DOM is ready, wait)
-    grid = document.querySelector('.grid');
-    if (!grid) {
-        document.addEventListener('DOMContentLoaded', loadBooks, { once: true });
-        return;
-    }
+    const grid = document.querySelector('.grid');
+    if (!grid) return;
 
-    // optional: clear existing content
-    grid.innerHTML = '';
-
-    for (let i = 0; i < bookData.length; i++) {
-        createBook(bookData[i]);
-    }
+    // Build all book HTML first
+    const booksHTML = bookData.map(book => createBook(book)).join('');
+    
+    // Insert all at once to minimize reflows
+    grid.innerHTML = booksHTML;
 }
