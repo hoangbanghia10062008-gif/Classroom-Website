@@ -105,12 +105,14 @@ function createPhonicEntry(phonic) {
 				<a href="${phonic.worksheet}" target="_blank">View Worksheet</a>
 				<img src="${phonic.mouth}" alt="Mouth Position for ${phonic.letter}">
 				<iframe src="${phonic.jollyPhonics}"
-						title="YouTube video player" frameborder="0"
+						title="YouTube video player"
+						loading="lazy"
 						allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
 						referrerpolicy="strict-origin-when-cross-origin"
 						allowfullscreen></iframe>
 				<iframe src="${phonic.vocabSong}"
-						title="YouTube video player" frameborder="0"
+						title="YouTube video player"
+						loading="lazy"
 						allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
 						referrerpolicy="strict-origin-when-cross-origin"
 						allowfullscreen></iframe>
@@ -120,7 +122,7 @@ function createPhonicEntry(phonic) {
     return content;
 };
 
-function loadPhonic() {
+function loadPhonics() {
     const grid = document.querySelector('.grid');
     if (!grid) return;
 

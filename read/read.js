@@ -97,7 +97,7 @@ const bookData = [ // Array to hold book data
 
 	{
 		cover: "the-dark.jpg",
-		video: "https://www.youtube.com/watch?v=5YVoBXn9uz8",
+		video: "https://www.youtube.com/embed/5YVoBXn9uz8",
 		summary: "A story about overcoming fear of the dark."
 	},
 
@@ -147,7 +147,7 @@ const bookData = [ // Array to hold book data
 function createBookEntry(book) {
     const content = `
         <div class="hover-container">
-            <img src="/Classroom-Website/read/book-covers/${book.cover}" 
+            <img src="/Classroom-Website/read/book-thumbnails/${book.cover}" 
                  alt="Book cover" 
                  class="book-cover"
                  loading="lazy">
