@@ -149,7 +149,7 @@ function createBookEntry(book) {
         <div class="hover-container">
             <img src="/classroom/resources/book-thumbnails/${book.cover}" 
                  alt="Book cover" 
-                 class="book-cover"
+                 class="book-thumbnail"
                  loading="lazy">
             <div class="hidden-content">
                 <iframe src="${book.video}" 

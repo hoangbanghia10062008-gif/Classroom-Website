@@ -102,8 +102,8 @@ function createPhonicEntry(phonic) {
         <div class="container">
 			<button type="button" class="collapsible">${letter}</button>
 			<div class="content">
-				<a href="${phonic.worksheet}" target="_blank">View Worksheet</a>
-				<img src="${phonic.mouth}" alt="Mouth Position for ${phonic.letter}">
+				// <a href="${phonic.worksheet}" target="_blank">View Worksheet</a>
+				// <img src=resources/phonics-mouth"${phonic.mouth}" alt="Mouth Position for ${phonic.letter}">
 				<iframe src="${phonic.jollyPhonics}"
 						title="YouTube video player"
 						loading="lazy"
