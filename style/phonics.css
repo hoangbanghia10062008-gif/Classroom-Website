@@ -1,3 +1,7 @@
+.grid {
+	box-sizing: border-box;
+}
+
 .container {
 	display: flex;
 	width: fit-content;
@@ -17,7 +21,7 @@
 	background-color: #eee;
 	color: #444;
 	cursor: pointer;
-	width: 300px;
+	width: 250px;
 	height: fit-content;
 	font-size: 72px;
 }
@@ -34,7 +38,7 @@
 	padding: 0 20px;
 	transition: max-height 0.2s ease-out 0.15s;
 	border-radius: 0 0 25px 25px;
-	width: 300px;
+	width: 250px;
 	overflow: hidden;
 	background-color: #f1f1f1;
 }

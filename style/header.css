@@ -16,6 +16,8 @@ body {
 	z-index: 1000;
 	width: 100%;
 	height: fit-content;
+	margin: 0;
+	padding: 0;
 	
 	border-bottom: 2px solid #bbb;
 	background-image: linear-gradient(to bottom, #5FE0FF, #0cdf9d);
@@ -104,14 +106,7 @@ p {
 	grid-auto-flow: row;
 	gap: 20px;
 
-	height: fit-content;
-
-	justify-content: center;
-	align-items: center;
-
 	margin-top: 20px;
-	margin-left: auto;
-	margin-right: auto;
 }
 
 /* Button grid layout */
