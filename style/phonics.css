@@ -14,12 +14,13 @@
 	border: none;
 	outline: none;
 	border-radius: 25px;
+	border: 2px solid #000;
 
 	transition: border-radius 0.2s ease-out;
 
 	padding: 20px;
-	background-color: #eee;
-	color: #444;
+	background-image: linear-gradient(to bottom, #50808E, #8EBCBE);
+	color: #fff;
 	cursor: pointer;
 	width: 250px;
 	height: fit-content;
@@ -28,8 +29,20 @@
 
 .collapsible-active {
 	border-radius: 25px 25px 0 0;
+	background-image: linear-gradient(to bottom, #ff7e5f, #feb47b);
+	color: #000;
+	
+	border-top: 2px solid #000;
+	border-right: 2px solid #000;
+	border-left: 2px solid #000;
+	border-bottom: none;
 }
-  
+
+.collapsible:hover {
+	background-image: linear-gradient(to bottom, #ff7e5f, #feb47b);
+	color: #000;
+}
+
 .content {
 	box-sizing: border-box;
 	height: fit-content;
@@ -40,7 +53,12 @@
 	border-radius: 0 0 25px 25px;
 	width: 250px;
 	overflow: hidden;
-	background-color: #f1f1f1;
+	background-image: linear-gradient(to bottom, #feb47b, #ff7e5f);
+
+	border-bottom: 2px solid #000;
+	border-right: 2px solid #000;
+	border-left: 2px solid #000;
+	border-top: none;
 }
 
 iframe {

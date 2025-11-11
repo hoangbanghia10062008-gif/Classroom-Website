@@ -108,6 +108,12 @@ const bookData = [ // Array to hold book data
 	},
 
 	{
+		cover: "the-peace-book.jpg",
+		video: "https://www.youtube.com/embed/t3fcJ1P4OcY",
+		summary: "A book about peace."
+	},
+
+	{
 		cover: "the-spooky-wheels-on-the-bus.jpg",
 		video: "https://www.youtube.com/embed/9WotjdZVrcw",
 		summary: "A spooky twist on Wheels on the Bus."
