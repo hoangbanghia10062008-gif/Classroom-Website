@@ -75,7 +75,7 @@ const songData = [ // Array to hold song data
 
 function createSongEntry(song) {
 	const content = `
-		<div class="video">
+		<div class="container">
 			<iframe src="${song.video}"
 				title="YouTube video player"
 				loading="lazy"

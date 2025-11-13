@@ -1,4 +1,5 @@
-const phonicData = [ // Array to hold book data
+// Array to hold book data
+const phonicData = [
 	{
 		letter: "B",
 		mouth: "",
@@ -85,20 +86,20 @@ function createPhonicEntry(phonic) {
         <div class="container">
 			<button type="button" class="collapsible">${phonic.letter}</button>
 			<div class="content">
-			<a href="${phonic.worksheet}" target="_blank">View Worksheet</a>
-			<img src=resources/phonics-mouth"${phonic.mouth}" alt="Mouth Position for ${phonic.letter}">
+				<a href="${phonic.worksheet}" target="_blank">View Worksheet</a>
+				<img src=resources/phonics-mouth"${phonic.mouth}" alt="Mouth Position for ${phonic.letter}">
 				<iframe src="${phonic.jollyPhonics}"
-						title="YouTube video player"
-						loading="lazy"
-						allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-						referrerpolicy="strict-origin-when-cross-origin"
-						allowfullscreen></iframe>
+					src="about:blank"
+					title="YouTube video player"
+					allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+					referrerpolicy="strict-origin-when-cross-origin" 
+					allowfullscreen></iframe>
 				<iframe src="${phonic.vocabSong}"
-						title="YouTube video player"
-						loading="lazy"
-						allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-						referrerpolicy="strict-origin-when-cross-origin"
-						allowfullscreen></iframe>
+					src="about:blank"
+					title="YouTube video player"
+					allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+					referrerpolicy="strict-origin-when-cross-origin" 
+					allowfullscreen></iframe>
 			</div>
 		</div>
     `;
@@ -115,18 +116,69 @@ function loadPhonics() {
     // Insert all at once to minimize reflows
     grid.innerHTML = phonicHTML;
 };
-loadPhonics();
 
-const coll = document.getElementsByClassName("collapsible");
 
-for (let i = 0; i < coll.length; i++) {
-	coll[i].addEventListener("click", function() {
-		this.classList.toggle("collapsible-active");
-		var content = this.nextElementSibling;
-		if (content.style.maxHeight) {
-			content.style.maxHeight = null;
-		} else {
-			content.style.maxHeight = content.scrollHeight + "px";
-		}
-	});
+// Function that handles the lazy loading for the collapsible button (Correctly implemented from your snippet)
+function initializeVideoLazyLoad() {
+    // Targets elements with the '.collapsible' class
+    const collapsibleButtons = document.querySelectorAll(".collapsible"); 
+
+    collapsibleButtons.forEach(collapsibleButton => { 
+        // Listener is on the collapsible button
+        collapsibleButton.addEventListener("click", function() {
+            
+            // The content to be opened/closed is the next sibling element of the button (this)
+            const content = this.nextElementSibling;
+
+            // Get all iframes inside the content block
+            const iframes = content.querySelectorAll('iframe');
+            
+            iframes.forEach(iframe => {
+                const dataSrc = iframe.getAttribute('data-src');
+                
+                // Load the video only if it hasn't been loaded yet
+                if (dataSrc && iframe.src.includes('about:blank')) {
+                    iframe.src = dataSrc;
+                }
+            });
+            
+        // The { once: true } ensures the video loads only the first time the button is clicked
+        }, { once: true }); 
+    });
+}
+
+
+// --- COLLAPSIBLE FUNCTION (Handles Height Animation only) ---
+function initializeCollapsibleVideoLoad() {
+    var coll = document.querySelectorAll(".collapsible"); 
+
+    for (let i = 0; i < coll.length; i++) {
+        coll[i].addEventListener("click", function() {
+            this.classList.toggle("collapsible-active");
+            var content = this.nextElementSibling;
+            if (content.style.maxHeight) {
+                content.style.maxHeight = null;
+				setTimeout(function(){
+					content.style.visibility = "hidden";
+				}, 350);
+            } else {
+                content.style.maxHeight = content.scrollHeight + "px";
+				content.style.visibility = "visible";
+
+                // *** Video loading is handled by initializeVideoLazyLoad() running once on click. ***
+            }
+        }); 
+    }
+}
+
+
+// --- Execution ---
+
+// Load the phonic entries and initialize listeners on page load
+window.onload = function() {
+    loadPhonics();
+    // This will attach the 'load video once' listener to all collapsible buttons
+    initializeVideoLazyLoad();
+    // This will attach the 'open/close' listener to all collapsible buttons
+    initializeCollapsibleVideoLoad(); 
 }

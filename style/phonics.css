@@ -44,6 +44,7 @@
 }
 
 .content {
+	visibility: hidden;
 	box-sizing: border-box;
 	height: fit-content;
 	max-height: 0;

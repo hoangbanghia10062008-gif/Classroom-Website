@@ -158,9 +158,9 @@ function createBookEntry(book) {
                  class="book-thumbnail"
                  loading="lazy">
             <div class="hidden-content">
-                <iframe src="${book.video}" 
+                <iframe data-src="${book.video}" 
+                        src="about:blank"
                         title="YouTube video player"
-                        loading="lazy"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                         referrerpolicy="strict-origin-when-cross-origin" 
                         allowfullscreen></iframe>
@@ -181,4 +181,27 @@ function loadBooks() {
     // Insert all at once to minimize reflows
     grid.innerHTML = bookHTML;
 };
+
+
+// --- New code for lazy-loading videos ---
+
+function initializeVideoLazyLoad() {
+    const bookContainers = document.querySelectorAll(".hover-container");
+
+    bookContainers.forEach(container => {
+        // We'll use 'mouseenter' (hover) to load the video
+        container.addEventListener('mouseenter', () => {
+            const iframe = container.querySelector('iframe');
+            
+            // Check if the 'data-src' exists and if the 'src' is still empty
+            if (iframe && iframe.getAttribute('data-src') && iframe.src.includes('about:blank')) {
+                const videoUrl = iframe.getAttribute('data-src');
+                iframe.src = videoUrl; // This is what loads the video!
+            }
+        }, { once: true }); // 'once: true' ensures this only runs one time per book
+    });
+}
+
+// After the books are loaded into the page, set up the lazy-load listeners
 loadBooks();
+initializeVideoLazyLoad(); // <-- This line was changed (from just 'loadBooks();')
