@@ -8,7 +8,7 @@ body {
 	overflow-y: scroll;
 	font-family: KGMissKindergarten, sans-serif;
 	margin: 0;
-	padding: 0;
+	padding-top: 60px;
 }
 
 /* Loading Screen */
@@ -42,38 +42,59 @@ body {
 	100% { transform: rotate(360deg); }
 }
 
-/* Class to hide the loader */
+#loader > h4 {
+	margin-left: 20px;
+}
+
 .loader-hidden {
 	opacity: 0;
 	visibility: hidden;
 }
 
 /* Navigation bar styles */
-.navBar {
+#navBar {
+	display: flex;
 	position: fixed;
 	z-index: 1000;
 	width: 100%;
 	height: fit-content;
+
+	top: 0;
 	margin: 0;
 	padding: 0;
 	
-	border-bottom: 2px solid #000;
+	border-bottom-left-radius: 25px;
+	border-bottom-right-radius: 25px;
+	
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 	background-image: linear-gradient(to bottom, #50808E, #8EBCBE);
+
+	transition: 0.3s;
+
+	align-items: center;
+	justify-content: center;
 
 	list-style-type: none;
 	overflow: hidden;
 }
 
-.navBar li {
+#navBar li {
 	float: left;
 }
 
-.navBar li a {
+#navBar li a {
 	display: block;
 	position: relative;
 	padding: 20px;
+	height: fit-content;
+	width: fit-content;
 
-	border-right: 2px solid #000;
+	transition: 0.3s;
+
+	border-radius: 10px;
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+
+	margin: 10px 20px;
 	
 	text-align: center;
 	justify-content: center;
@@ -81,13 +102,19 @@ body {
 	font-family: KGMissKindergarten, sans-serif;
 	color: #fff;
 	text-decoration: none;
+
+	font-size: 32px;
 }
 
-.navBar li a::before {	
+#navBar li a::before {	
 	position: absolute;
 	z-index: -1;
 	height: 100%;
 	width: 100%;
+
+	border-radius: 10px;
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+
 	opacity: 0;
 	max-height: 0;
 	inset: 0;
@@ -97,23 +124,25 @@ body {
 	transition: all 0.3s ease;
 }
 
-.navBar li a:hover::before {
+#navBar li a:hover::before {
 	opacity: 1;
 	max-height: 100%;
 }
 
-.navBar li a:hover {
+#navBar li a:hover {
 	color: #000;
+	font-size: 40px;
 }
 
 .header {
 	box-sizing: border-box;
 	height: fit-content;
 	width: 100%;
+
 	padding: 20px;
 	
 	background-color: aliceblue;
-	border-bottom: #000 2px solid;
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 
 	text-align: center;
 	justify-content: center;

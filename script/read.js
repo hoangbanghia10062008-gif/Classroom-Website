@@ -108,6 +108,12 @@ const bookData = [ // Array to hold book data
 	},
 
 	{
+		cover: "the-paper-bag-princess.jpg",
+		video: "https://www.youtube.com/embed/nrzkDntaZFo",
+		summary: "..."
+	},
+
+	{
 		cover: "the-peace-book.jpg",
 		video: "https://www.youtube.com/embed/t3fcJ1P4OcY",
 		summary: "A book about peace."
@@ -183,7 +189,7 @@ function loadBooks() {
 };
 
 
-// --- New code for lazy-loading videos ---
+// Lazy-loading videos
 
 function initializeVideoLazyLoad() {
     const bookContainers = document.querySelectorAll(".hover-container");
